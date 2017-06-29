@@ -1,0 +1,25 @@
+********************* TGFIT CONTROL FILE ********************
+FITTING:
+max number of iterrations < 50
+min change of chisquare   < 0.0000000005
+number of data points     < 1024
+size of Neville tableau   < 2
+denominator param         < 6
+max Lamda                 < 1E20 
+keep SAS positive         < 1
+weight residuals          < 1  
+correct data              < 0
+
+SIMULATION:                           < 0
+add noise to simulated kinetics       < 1 noise factor < 3.5
+simulate using convolution with IRF   < 1
+
+OUTPUT:
+residuals          < 0
+autocorrelation    < 0
+data and fits      < 0
+DAS                < 1  number  < 1 1 1 1 
+trace              < 0  number  < 1 
+derivatives        < 0  number  < 1 
+
+
