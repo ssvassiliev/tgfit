@@ -1,3 +1,5 @@
+#Global and target analysis of time-resolved spectroscopic data#
+
 May 2013. 
 Added Euler propagator.
 Fixed bug: non-diagonal transfer matrix was not properly assembled 
