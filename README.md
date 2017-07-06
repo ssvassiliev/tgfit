@@ -9,16 +9,15 @@ Tgfit package now includes two programs:
 	tgfit 
 	tgfit-auto
 
-tgfit  requires several input files: 
+tgfit  requires several input files:
+
 1. Run control parameters [~/.tgfit/.tgfitrc],
 2. Fitting model describing what and how to fit (answer file). 
-   Example aswer files [sasX.ans] are in [~/.tgfit]
+    Example aswer files [sasX.ans] are in [~/.tgfit]
 3. A set of datafiles
 4. Steady-state fluorescence spectrum [./spec.dat]. This file 
-   contains one column of numbers representing fuorescence intensity
-   at all wavelength at which kinetics were measured.
-tgfit performs least squares fit of the fluorescence decay kinetics. 
-It takes starting parameter values from the answer file.
+   contains one column of numbers representing fuorescence intensity at all wavelength at which kinetics were measured.
+tgfit performs least squares fit of the fluorescence decay kinetics.It takes starting parameter values from the answer file.
 
 tgfit-auto is provided to facilitate search of the proper starting 
    parameters. In addition to the described above input files this 
@@ -43,5 +42,3 @@ make auto
 4. Perform installation:
    
 make install
-
-
