@@ -159,12 +159,13 @@ if((spcfile = open(label_spcfile, O_RDONLY )) == -1)  {
 
   /* Read data */
   lseek(spcfile,data_block_offset,SEEK_SET);
+  int  irfnum;
   for(j=0;j<no_of_data_blocks;j++)
     {
       /* Data block header */
       read(spcfile,&block_no[j],2);
       if(block_no[j]==no_of_irf_block)
-	no_of_irf_block=j;   
+        irfnum=j;   
       read(spcfile,&data_offs,4);
       read(spcfile,&next_block_offs,4);
       read(spcfile,&block_type,2);
@@ -176,6 +177,7 @@ if((spcfile = open(label_spcfile, O_RDONLY )) == -1)  {
       for(i=0;i<data_block_length/2;i++)
       read(spcfile,&databuf[j][i],2);  
     }
+
 
   // NORMALIZE DATA
       printf("Multiplying datasets by:\n");
@@ -198,16 +200,17 @@ if((spcfile = open(label_spcfile, O_RDONLY )) == -1)  {
     
   
 
-  //  for(j=0;j<no_of_data_blocks;j++)printf("%i ",block_no[j]);
-  //  printf("\n");
+    printf("Block order:");
+    for(j=0;j<no_of_data_blocks;j++)printf("%i ",block_no[j]);
+    printf("\n");
 
   for(j=0;j<no_of_data_blocks;j++)
-    if(j!=no_of_irf_block){
+    if(j!=irfnum){
       sprintf(&label_tgfitfile[n_label_tgfile],"%i.asc",block_no[j]);
       tgfitfile=fopen(label_tgfitfile,"w");
       fprintf(tgfitfile,"%f     1    1000\n", tcal);
       for(i=0;i<data_block_length/2;i++)
-	fprintf(tgfitfile,"%12.2f %12.2f\n",(float)databuff[no_of_irf_block][i], (float)databuff[j][i]);
+	fprintf(tgfitfile,"%12.2f %12.2f\n",(float)databuff[irfnum][i], (float)databuff[j][i]);
       fclose(tgfitfile); 
     }
   close(spcfile);
