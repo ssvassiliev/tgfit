@@ -35,7 +35,7 @@ http://sourceforge.net/projects/plplot/
 make tgfit
 make auto
 
-3. Make sure you have directory /<your-home>/bin
+3. Make sure you have directory [your_home/bin]
    if you are not sure, create it again:
       mkdir ~/bin
 
